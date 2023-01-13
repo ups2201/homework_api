@@ -7,25 +7,25 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class UserApi {
-  public static final String BASE_URI = "https://petstore.swagger.io/v2";
+public class UserApi extends BaseApi {
   public static final String USER_URL = "/user";
-
-  private final RequestSpecification specification;
-
-  public UserApi() {
-    specification = given()
-            .baseUri(BASE_URI)
-            .contentType(ContentType.JSON)
-            .log().all();
-  }
 
   public ValidatableResponse createUser(UserDTO userDTO) {
     return given(specification)
-            .body(userDTO)
+              .body(userDTO)
             .when()
-            .post(USER_URL)
+              .post(USER_URL)
+            .then()
+              .log().all();
+  }
+  public ValidatableResponse getUserByName(String name) {
+    return given(specification)
+            .basePath(USER_URL + "/{username}")
+            .pathParam("username", name)
+            .when()
+            .get()
             .then()
             .log().all();
   }
+
 }
