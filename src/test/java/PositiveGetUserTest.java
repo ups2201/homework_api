@@ -10,11 +10,14 @@ public class PositiveGetUserTest {
   private final UserApi userApi = new UserApi();
 
   /**
-   * Проверка успешного получения пользователя Действие: - Создаём пользователя c username = "Alex"
+   * Проверка успешного получения пользователя Действие:
+   * - Создаём пользователя c username = "Alex"
    * - Для получения пользователя отправляем get запрос на url /user/{username}, в параметрах
-   * передаём значение "Alex" Ожидаемый результат: - статус ответа равен 200 - в ответе username
-   * совпадает с username, который указывали при создании пользователя - схема ответа соответсвует
-   * jsonSchema 'getUserSchema.json'
+   * передаём значение "Alex"
+   * Ожидаемый результат:
+   * - статус ответа равен 200
+   * - в ответе username совпадает с username, который указывали при создании пользователя
+   * - схема ответа соответсвует jsonSchema 'getUserSchema.json'
    */
   @Test
   public void getUserSuccessTest() {

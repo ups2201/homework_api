@@ -10,12 +10,14 @@ public class PositiveDeleteUserTest {
   private final UserApi userApi = new UserApi();
 
   /**
-   * Проверка успешного получения пользователя Действие: - Создаём пользователя c username =
-   * "UserForDeleting" - Провряем, что созданный пользователь существует, при выполнении
-   * getUserByName(username) возвращается статус 200 - Удаляем пользователя с username =
-   * "UserForDeleting" Ожидаемый результат: - статус ответа равен 200 - схема ответа соответсвует
-   * jsonSchema 'deleteUserSchema.json' - пользователя не существует, на getUserByName(username)
-   * возвращается статус 404
+   * Проверка успешного получения пользователя Действие:
+   * - Создаём пользователя c username = "UserForDeleting"
+   * - Провряем, что созданный пользователь существует, при выполнении getUserByName(username) возвращается статус 200
+   * - Удаляем пользователя с username = "UserForDeleting"
+   * Ожидаемый результат:
+   * - статус ответа равен 200
+   * - схема ответа соответсвует jsonSchema 'deleteUserSchema.json'
+   * - пользователя не существует, на getUserByName(username) возвращается статус 404
    */
   @Test
   public void deleteUserSuccessTest() {
