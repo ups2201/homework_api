@@ -1,13 +1,12 @@
 package dto;
 
+import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import java.util.Objects;
 
 @Data
 @Builder
@@ -31,15 +30,14 @@ public class UserDTO {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     UserDTO userDTO = (UserDTO) o;
-    return
-        id.equals(userDTO.id) &&
-        username.equals(userDTO.username) &&
-        firstName.equals(userDTO.firstName) &&
-        lastName.equals(userDTO.lastName) &&
-        phone.equals(userDTO.phone) &&
-        email.equals(userDTO.email) &&
-        password.equals(userDTO.password) &&
-        userStatus.equals(userDTO.userStatus);
+    return id.equals(userDTO.id)
+        && username.equals(userDTO.username)
+        && firstName.equals(userDTO.firstName)
+        && lastName.equals(userDTO.lastName)
+        && phone.equals(userDTO.phone)
+        && email.equals(userDTO.email)
+        && password.equals(userDTO.password)
+        && userStatus.equals(userDTO.userStatus);
   }
 
   @Override
