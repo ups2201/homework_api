@@ -20,6 +20,7 @@
         <rest-assured.version>5.3.0</rest-assured.version>
         <lombok.version>1.18.24</lombok.version>
         <slf4j.simple.version>1.7.30</slf4j.simple.version>
+        <base.url>https://petstore.swagger.io/v2</base.url>
     </properties>
 
     <dependencies>
@@ -93,6 +94,9 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <systemPropertyVariables>
+                        <base.url>${base.url}</base.url>
+                    </systemPropertyVariables>
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
