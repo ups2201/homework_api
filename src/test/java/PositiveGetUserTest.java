@@ -47,7 +47,7 @@ public class PositiveGetUserTest {
         .assertThat(user)
         .withFailMessage(
             String.format(
-                "Не совпадает отправленный '%s' и полученный '%s' пользователь", user, userDTO))
+                "Не совпадает отправленный '%s' и полученный '%s' пользователь", userDTO, user))
         .isEqualTo(userDTO);
 
     softAssertions

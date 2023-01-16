@@ -1,6 +1,7 @@
 import dto.UserDTO;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.ValidatableResponse;
+import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 import services.UserApi;
@@ -36,7 +37,10 @@ public class PositiveDeleteUserTest {
             .build();
 
     userApi.createUser(userDTO).statusCode(200);
-    userApi.getUserByName(username).statusCode(200);
+    UserDTO user = userApi.getUserByName(username).extract().body().as(UserDTO.class);
+    Assertions.assertThat(user)
+        .withFailMessage(String.format("Не совпадает отправленный '%s' и полученный '%s' пользователь", userDTO, user))
+        .isEqualTo(userDTO);
 
     ValidatableResponse validatableResponse = userApi.deleteUserByName(username).statusCode(200);
     String userBodyResponse = validatableResponse.extract().response().body().prettyPrint();
